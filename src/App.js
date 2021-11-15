@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import ContentLayer from "./components/contentLayer";
 import React from "react";
 import {Link} from "react-router-dom";
