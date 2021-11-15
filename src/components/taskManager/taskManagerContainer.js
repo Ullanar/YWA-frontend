@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import TaskManager from "./taskManagerLayer";
 import TaskCard from "./taskCard";
+import {addNewTask} from "../../redux/taskManagerReducer";
 
 
 function mapStateToProps(state) {
@@ -12,7 +13,13 @@ function mapStateToProps(state) {
                                    isComplete={task.isComplete} title={task.cardTitle}/>)
     }
 }
+function mapDispatchToProps(dispatch) {
+    return {
+        createNewTask: (deadline, title, text) => dispatch(addNewTask(deadline, title, text))
 
-let TaskManagerContainer = connect(mapStateToProps)(TaskManager)
+    }
+}
+
+let TaskManagerContainer = connect(mapStateToProps, mapDispatchToProps)(TaskManager)
 
 export default TaskManagerContainer

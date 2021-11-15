@@ -39,6 +39,7 @@ export default function TaskCard(props) {
             <Card className={classes.root}>
                 <CardContent>
 
+                    {/*{JSON.stringify(props)}*/}
                     <Typography className={classes.title} variant="h5" component="h2">
                         {props.title}
                     </Typography>
@@ -51,9 +52,9 @@ export default function TaskCard(props) {
                         Created: {props.created} Deadline: {props.deadline}
                     </Typography>
                 </CardContent>
-                {/*<CardActions>*/}
-                {/*    <Button size="small">Learn More</Button>*/}
-                {/*</CardActions>*/}
+                <CardActions>
+                    <Button size="small">delete</Button>
+                </CardActions>
             </Card>
 
         </div>
