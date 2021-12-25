@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {api} from "../../api/apiGateway";
 import {setLoginAC, setLogoutAC} from "../../redux/loginReducer";
 import {setUserAC} from "../../redux/userReducer";
+import axios from "axios";
 
  function LoginPage() {
     const user = useSelector(state => state.user.user)
@@ -54,7 +55,14 @@ import {setUserAC} from "../../redux/userReducer";
         dispatch(setLoginAC())
     }
     const handleTestLogout = () => {
-        dispatch(setLogoutAC())
+        if (!user) return null;
+
+        api.auth.logout(user.id).then(res => {
+            console.log(res)
+            if (res.status === 200) {
+                dispatch(setLogoutAC())
+            }
+        })
     }
 
     const handleTest = () => {
